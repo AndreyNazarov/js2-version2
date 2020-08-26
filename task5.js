@@ -5,7 +5,20 @@ const checkForSpam = function (message) {
 
   // const prohibitedWords = "sale" || "spam";
 
-  // return message.includes(prohibitedWords);
+  // for (let key of arr) {
+  //   // console.log(key);
+  //   if (key.name) {
+  //     nameArr.push(key.name);
+  //   } else if (key.price) {
+  //     priceArr.push(key.price);
+  //   } else if (key.quantity) {
+  //     quantityArr.push(key.quantity);
+  //   } else {
+  //     return "not";
+  //   }
+  // }
+  // console.log( priceArr);
+  return answer;
 };
 
 /*
