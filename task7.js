@@ -1,46 +1,57 @@
-const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
-
-const isLoginValid = function (login) {
-  if (login.length > 4 && login.length < 16) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-const isLoginUnique = function (allLogins, login) {
-  if (allLogins.includes(login)) {
-    return false;
-  } else {
-    return true;
-  }
-};
-const addLogin = function (allLogins, login) {
-  if (isLoginValid(login)) {
-  }
-
-  if(!isLoginValid(login)){console.log( 'Ошибка! Логин должен быть от 4 до 16 символов');}
-  // return true;
-  //   } else {
-  //     console.log("Ошибка! Логин должен быть от 4 до 16 символов");
-  //   }
-
-  //   if (isLoginUnique(allLogins, login) === false) {
-
-  //   }
-  if (isLoginUnique(allLogins, login)) {
-    allLogins.push(login);
-    console.log("Логин успешно добавлен!");
-  } else {
-    console.log("Такой логин уже используется!");
-  }
-  return allLogins;
-};
-
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(addLogin(logins, "Ajax")); // 'Логин успешно добавлен!'
-console.log(addLogin(logins, "robotGoogles")); // 'Такой логин уже используется!'
-console.log(addLogin(logins, "Zod")); // 'Ошибка! Логин должен быть от 4 до 16 символов'
-console.log(addLogin(logins, "jqueryisextremelyfast")); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+const Transaction = {
+    DEPOSIT: 'deposit',
+    WITHDRAW: 'withdraw',
+  };
+  
+  /*
+   * Каждая транзакция это объект со свойствами: id, type и amount
+   */
+  
+  const account = {
+    // Текущий баланс счета
+    balance: 0,
+  
+    // История транзакций
+    transactions: [],
+  
+    /*
+     * Метод создает и возвращает объект транзакции.
+     * Принимает сумму и тип транзакции.
+     */
+    createTransaction(amount, type) {},
+  
+    /*
+     * Метод отвечающий за добавление суммы к балансу.
+     * Принимает сумму танзакции.
+     * Вызывает createTransaction для создания объекта транзакции
+     * после чего добавляет его в историю транзакций
+     */
+    deposit(amount) {},
+  
+    /*
+     * Метод отвечающий за снятие суммы с баланса.
+     * Принимает сумму танзакции.
+     * Вызывает createTransaction для создания объекта транзакции
+     * после чего добавляет его в историю транзакций.
+     *
+     * Если amount больше чем текущий баланс, выводи сообщение
+     * о том, что снятие такой суммы не возможно, недостаточно средств.
+     */
+    withdraw(amount) {},
+  
+    /*
+     * Метод возвращает текущий баланс
+     */
+    getBalance() {},
+  
+    /*
+     * Метод ищет и возвращает объект транзации по id
+     */
+    getTransactionDetails(id) {},
+  
+    /*
+     * Метод возвращает количество средств
+     * определенного типа транзакции из всей истории транзакций
+     */
+    getTransactionTotal(type) {},
+  };

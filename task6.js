@@ -1,15 +1,28 @@
-let total = 0;
-const numbers = [];
-do {
-  let input = prompt("tap a number");
-  if (input === null) {
-    break;
-  }
-  input = parseInt(input);
-  numbers.push(input);
-} while (true);
+const products = [
+  { name: "Радар", price: 1300, quantity: 4 },
+  { name: "Сканер", price: 2700, quantity: 3 },
+  { name: "Дроид", price: 400, quantity: 7 },
+  { name: "Захват", price: 1200, quantity: 2 },
+];
 
-for (const number of numbers) {
-  total += number;
-}
-console.log(`Summary: ${total}`);
+const calculateTotalPrice = function (allProdcuts, productName) {
+  // const productsArray = [];
+  let total = 0;
+  for (let key of allProdcuts) {
+    // const getName = key
+    // console.log(getName);
+
+    if (key.name === productName) {
+      total += key.price * key.quantity;
+    }
+    // console.log(key.price);
+  }
+  return total;
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(calculateTotalPrice(products, "Радар")); // 5200
+
+console.log(calculateTotalPrice(products, "Дроид")); // 2800

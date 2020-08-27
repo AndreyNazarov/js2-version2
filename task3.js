@@ -1,19 +1,58 @@
-const findLongestWord = function (string) {
-  const turnToArray = string.split(" ");
-  let longestWord = turnToArray[0];
-  for (let i = 0; i < turnToArray.length; i++) {
-    if (turnToArray[i].length > longestWord.length) {
-      longestWord = turnToArray[i];
+// const findBestEmployee = function (employees) {
+//   const iteration = Object.keys(employees);
+// let bestName = iteration[0];
+// let bestValue = employees[bestName];
+
+//   for (let currentName of iteration) {
+//     if (bestValue < employees[currentName]) {
+//       bestValue = employees[currentName];
+//       bestName = currentName;
+//     }
+//   }
+//   return `${bestName}: ${bestValue}`;
+// };
+
+const findBestEmployee = function (employees) {
+  const best = Object.keys(employees);
+  let bestName = best[0];
+  let bestValue = employees[bestName];
+  // console.log(bestValue);
+
+  for (let key of best) {
+    if (employees[key] > bestValue) {
+      bestName = key;
+      bestValue = employees[key];
     }
   }
-  return longestWord;
+  return bestName; 
 };
 
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
-console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); // 'jumped'
+console.log(
+  findBestEmployee({
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
+  })
+); // lorence
 
-console.log(findLongestWord("Google do a roll")); // 'Google'
+console.log(
+  findBestEmployee({
+    poly: 12,
+    mango: 17,
+    ajax: 4,
+  })
+); // mango
 
-console.log(findLongestWord("May the force be with you")); // 'force'
+console.log(
+  findBestEmployee({
+    lux: 147,
+    david: 21,
+    kiwi: 19,
+    chelsy: 38,
+  })
+); // lux
+

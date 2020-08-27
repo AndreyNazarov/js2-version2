@@ -1,33 +1,27 @@
-const checkForSpam = function (message) {
-  const formateText = message.toLowerCase();
-  console.log(formateText);
-  return formateText.includes('sale') || formateText.includes('spam')
+const products = [
+  { name: "Радар", price: 1300, quantity: 4 },
+  { name: "Сканер", price: 2700, quantity: 3 },
+  { name: "Дроид", price: 400, quantity: 7 },
+  { name: "Захват", price: 1200, quantity: 2 },
+];
 
-  // const prohibitedWords = "sale" || "spam";
+const getAllPropValues = function (arr, prop) {
+  const getArray = [];
+  for (let key of arr) {
+    
+    if (key[prop]) {
+      getArray.push(key[prop]);
+    }
+  }
 
-  // for (let key of arr) {
-  //   // console.log(key);
-  //   if (key.name) {
-  //     nameArr.push(key.name);
-  //   } else if (key.price) {
-  //     priceArr.push(key.price);
-  //   } else if (key.quantity) {
-  //     quantityArr.push(key.quantity);
-  //   } else {
-  //     return "not";
-  //   }
-  // }
-  // console.log( priceArr);
-  return answer;
+  return getArray;
 };
 
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
-console.log(checkForSpam("Latest technology news")); // false
+console.log(getAllPropValues(products, "name")); // ['Радар', 'Сканер', 'Дроид', 'Захват']
 
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
+console.log(getAllPropValues(products, "quantity")); // [4, 3, 7, 2]
 
-console.log(checkForSpam("Get best sale offers now!")); // true
-
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+console.log(getAllPropValues(products, "category")); // []
