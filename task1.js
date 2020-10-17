@@ -1,16 +1,15 @@
-const user = {
-  name: "Mango",
-  age: 20,
-  hobby: "html",
-  premium: true,
-};
+const firstTaskRef = document.querySelector("#categories");
 
-user.mood = "happy";
-user.hobby = "skydiving";
-user["premium"] = "false";
+const liRef = document.querySelectorAll("li.item");
+console.log(`В списке ${liRef.length} категории.`);
 
-const keys = Object.keys(user);
+const findEl = (elements) =>
+  elements.forEach((el) => {
+    const title = el.querySelector("h2").textContent;
+    console.log(`Категория: ${title}`);
+    // const countLI = el.childNodes.length;
+    const countLI = el.querySelector("ul").children.length;
+    console.log(countLI);
+  });
 
-for (const key of keys) {
-  console.log(key,":", user[key]);
-}
+findEl(liRef);

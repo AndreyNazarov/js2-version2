@@ -1,12 +1,20 @@
-const countProps = function (obj) {
-  return Object.keys(obj).length;
+const ingredients = [
+  "Картошка",
+  "Грибы",
+  "Чеснок",
+  "Помидоры",
+  "Зелень",
+  "Приправы",
+];
+const ingRef = document.querySelector("#ingredients");
+
+const liRef = (element) => {
+  element.map((el) => {
+    let makeLiRef = document.createElement("li");
+    makeLiRef.textContent = el;
+  });
+  ingRef.append(...element);
+  console.log(ingRef);
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(countProps({})); // 0
-
-console.log(countProps({ name: "Mango", age: 2 })); // 2
-
-console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 })); // 3
+liRef(ingredients);
